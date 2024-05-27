@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Grid, Divider, Box, Card, CardContent, Typography, Avatar } from '@mui/material';
 import UserList from '../../components/userList/UserList';
 import StyledCard from './StyledCard';
+import CreatePost from '../../components/CreatePost/CreatePost';
 import { red } from '@mui/material/colors';
 import './Timeline.css'; 
 
@@ -38,6 +39,16 @@ const Timeline = () => {
     return user ? user.name.charAt(0) : '?';
   };
 
+  const addPost = (content) => {
+    const newPost = {
+      userId: loggedInUser.id,
+      id: posts.length + 1,
+      title: 'New Post',
+      body: content
+    };
+    setPosts([newPost, ...posts]);
+  };
+
   return (
     <Container sx={{ marginTop: '50px' }}>
       <Grid container spacing={4}>
@@ -47,6 +58,9 @@ const Timeline = () => {
           </Box>
         </Grid>
         <Grid item xs={6}>
+          <Box mb={4} >
+            <CreatePost addPost={addPost} />
+          </Box>
           <Divider orientation="vertical" flexItem />
           <Box pl={4}>
             <Grid container spacing={4}>
