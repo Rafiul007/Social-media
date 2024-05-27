@@ -5,7 +5,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { deepPurple } from '@mui/material/colors';
 
 const UserList = ({ users }) => (
-  <Box mr={4}>
+  <Box mr={4} >
     <Typography variant="h6" gutterBottom>
       Add Friends
     </Typography>

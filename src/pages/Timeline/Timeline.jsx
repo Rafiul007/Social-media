@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Container, Grid, Divider, Box, Card, CardContent, Typography, Avatar } from '@mui/material';
 import UserList from '../../components/userList/UserList';
-import StyledCard from './StyledCard';
+import StyledCard from '../../components/Card/StyledCard';
 import CreatePost from '../../components/CreatePost/CreatePost';
 import { red } from '@mui/material/colors';
 import './Timeline.css'; 
@@ -39,11 +39,11 @@ const Timeline = () => {
     return user ? user.name.charAt(0) : '?';
   };
 
-  const addPost = (content) => {
+  const addPost = (title, content) => {
     const newPost = {
       userId: loggedInUser.id,
       id: posts.length + 1,
-      title: 'New Post',
+      title,
       body: content
     };
     setPosts([newPost, ...posts]);
@@ -58,7 +58,7 @@ const Timeline = () => {
           </Box>
         </Grid>
         <Grid item xs={6}>
-          <Box mb={4} >
+          <Box mb={4}>
             <CreatePost addPost={addPost} />
           </Box>
           <Divider orientation="vertical" flexItem />

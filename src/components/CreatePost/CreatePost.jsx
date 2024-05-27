@@ -4,15 +4,21 @@ import React, { useState } from 'react';
 import { Box, TextField, Button, Card, CardContent, Typography } from '@mui/material';
 
 const CreatePost = ({ addPost }) => {
+  const [postTitle, setPostTitle] = useState('');
   const [postContent, setPostContent] = useState('');
 
-  const handlePostChange = (event) => {
+  const handleTitleChange = (event) => {
+    setPostTitle(event.target.value);
+  };
+
+  const handleContentChange = (event) => {
     setPostContent(event.target.value);
   };
 
   const handlePostSubmit = () => {
-    if (postContent.trim() !== '') {
-      addPost(postContent);
+    if (postTitle.trim() !== '' && postContent.trim() !== '') {
+      addPost(postTitle, postContent);
+      setPostTitle('');
       setPostContent('');
     }
   };
@@ -23,12 +29,20 @@ const CreatePost = ({ addPost }) => {
         <Typography variant="h6" gutterBottom>Create Post</Typography>
         <TextField
           fullWidth
+          variant="outlined"
+          placeholder="Title"
+          value={postTitle}
+          onChange={handleTitleChange}
+          sx={{ marginBottom: 2 }}
+        />
+        <TextField
+          fullWidth
           multiline
           rows={4}
           variant="outlined"
           placeholder="What's on your mind?"
           value={postContent}
-          onChange={handlePostChange}
+          onChange={handleContentChange}
           sx={{ marginBottom: 2 }}
         />
         <Button variant="contained" color="primary" onClick={handlePostSubmit}>Post</Button>
