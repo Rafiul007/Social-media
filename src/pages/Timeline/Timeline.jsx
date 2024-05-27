@@ -4,8 +4,8 @@ import { Container, Grid, Divider, Box, Card, CardContent, Typography, Avatar } 
 import UserList from '../../components/userList/UserList';
 import StyledCard from '../../components/Card/StyledCard';
 import CreatePost from '../../components/CreatePost/CreatePost';
-import { red } from '@mui/material/colors';
-import './Timeline.css'; 
+import { orange, red } from '@mui/material/colors';
+import './Timeline.css';
 
 const Timeline = () => {
   const [posts, setPosts] = useState([]);
@@ -79,9 +79,11 @@ const Timeline = () => {
         </Grid>
         <Grid item xs={3}>
           <Box sx={{ position: 'sticky', top: '100px', pl: 3 }}>
-            <Card sx={{  marginBottom: 4, borderRadius: 4, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+            <Card sx={{
+              marginBottom: 4, borderRadius: 4, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+            }}>
               <CardContent>
-                <Avatar sx={{ bgcolor: red[500], width: 56, height: 56, mb: 2 }}>
+                <Avatar sx={{ bgcolor: red[400], width: 56, height: 56, mb: 2 }}>
                   {loggedInUser.name.charAt(0)}
                 </Avatar>
                 <Typography variant="h6">{loggedInUser.name}</Typography>

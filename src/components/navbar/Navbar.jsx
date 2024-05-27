@@ -3,9 +3,9 @@ import { AppBar, Toolbar, Typography, Container, IconButton } from '@mui/materia
 import { AccountCircle, Notifications, Settings } from '@mui/icons-material'; 
 
 const Navbar = () => (
-  <AppBar position="sticky" sx={{ top: 0, zIndex: 999 }}>
+  <AppBar position="sticky" sx={{ top: 0, zIndex: 999,background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)' }}>
     <Toolbar>
-      <Container sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+      <Container sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',}}>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Social Media Feed
         </Typography>

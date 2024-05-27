@@ -45,7 +45,7 @@ const CreatePost = ({ addPost }) => {
           onChange={handleContentChange}
           sx={{ marginBottom: 2 }}
         />
-        <Button variant="contained" color="primary" onClick={handlePostSubmit}>Post</Button>
+        <Button variant="contained" sx={{ background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)' }} onClick={handlePostSubmit}>Post</Button>
       </CardContent>
     </Card>
   );

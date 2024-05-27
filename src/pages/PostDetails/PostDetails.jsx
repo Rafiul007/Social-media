@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { Container, Card, CardContent, Typography, Box } from '@mui/material';
+import { Container, Card, CardContent, Typography, Box, Avatar } from '@mui/material';
 
 const PostDetails = () => {
   const { postId } = useParams();
@@ -41,9 +41,12 @@ const PostDetails = () => {
           <Typography variant="body1" color="textSecondary" component="p" sx={{ marginBottom: 2 }}>
             {post.body}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
-            Posted by: {user.name} ({user.email})
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', }}>
+            <Avatar sx={{ bgcolor: 'primary.main', marginRight: 1 }}>{user.name.charAt(0)}</Avatar>
+            <Typography variant="body2" color="textSecondary">
+              Posted by: {user.name} ({user.email})
+            </Typography>
+          </Box>
         </CardContent>
       </Card>
       <Box>
